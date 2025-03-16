@@ -58,19 +58,25 @@ export function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <div className="fixed inset-0 z-50 md:hidden">
+            {/* Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="fixed inset-0 bg-black/50 backdrop-blur-sm"
               onClick={() => setIsMenuOpen(false)}
             />
+            {/* Offcanvas Menu */}
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 30,
+              }}
               className="fixed right-0 top-0 h-full w-72 bg-gradient-to-b from-white/95 to-sepia-50 backdrop-blur-md shadow-2xl border-l border-sepia-200 flex flex-col"
             >
               {/* Offcanvas Header */}
@@ -84,7 +90,7 @@ export function Header() {
                 </button>
               </div>
 
-              {/* Offcanvas Nav */}
+              {/* Offcanvas Navigation */}
               <nav className="flex-1 overflow-y-auto p-4 space-y-2">
                 {menuItems.map((item, index) => (
                   <a
