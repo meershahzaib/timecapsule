@@ -1,9 +1,9 @@
 import React from 'react';
-import { Timer as TimeCapsule, Clock, Gift, Lock } from 'lucide-react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { ProcessOverview } from './components/ProcessOverview';
 import { Features } from './components/Features';
-import { Footer } from './components/Footer.tsx';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <ProcessOverview />
         <Features />
       </main>
       <Footer />
