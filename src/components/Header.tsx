@@ -22,7 +22,7 @@ export function Header() {
             {/* Logo */}
             <div className="flex items-center">
               <TimeCapsule className="h-8 w-8 text-vintage-700" />
-              <span className="ml-2 text-xl font-semibold text-vintage-900">Time Capsule Hub</span>
+              <span className="ml-2 text-xl font-semibold text-vintage-900">TimeCapsule Hub</span>
             </div>
             
             {/* Desktop Navigation */}
