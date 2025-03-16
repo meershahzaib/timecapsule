@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Timer as TimeCapsule, Menu, X, Home, Info, Gift, Settings, HelpCircle, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,10 +38,13 @@ export function Header() {
                   <span>{item.label}</span>
                 </a>
               ))}
-              <button className="bg-vintage-700 text-white px-6 py-3 rounded-lg hover:bg-vintage-800 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl flex items-center space-x-2">
-                <Gift className="w-5 h-5" />
-                <span>Get Started</span>
-              </button>
+              {/* Get Started button linking to the login/sign form */}
+              <Link to="/login" className="inline-block">
+                <button className="bg-vintage-700 text-white px-6 py-3 rounded-lg hover:bg-vintage-800 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl flex items-center space-x-2">
+                  <Gift className="w-5 h-5" />
+                  <span>Get Started</span>
+                </button>
+              </Link>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -105,12 +109,14 @@ export function Header() {
                 ))}
               </nav>
 
-              {/* Offcanvas Footer */}
+              {/* Offcanvas Footer with Get Started button linking to /login */}
               <div className="p-4 border-t border-sepia-200">
-                <button className="w-full bg-vintage-700 text-white px-4 py-3 rounded-lg hover:bg-vintage-800 transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl">
-                  <Gift className="w-5 h-5" />
-                  <span className="font-medium">Get Started</span>
-                </button>
+                <Link to="/login" className="inline-block w-full">
+                  <button className="w-full bg-vintage-700 text-white px-4 py-3 rounded-lg hover:bg-vintage-800 transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl">
+                    <Gift className="w-5 h-5" />
+                    <span className="font-medium">Get Started</span>
+                  </button>
+                </Link>
               </div>
             </motion.div>
           </div>
